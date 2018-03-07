@@ -1,4 +1,4 @@
-# Ric rac Roe
+# Ric Rac Roe
 
 Getting used to React. Tic Tac Toe in React.
 
