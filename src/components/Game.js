@@ -30,39 +30,50 @@ function Square (props) {
 
 class Board extends React.Component {
 
+  state = {
+    squares: Array(9).fill(null),
+    xIsNext: true
+  };
 
 handleClick = (index) => {
   const squares = [...this.state.squares];
   if (calculateWinner(squares) || squares[index]) {
       return;
     }
-  squares[index] = this.state.xIsnext ? 'X' : 'O';
+
+  squares[index] = this.state.xIsNext ? 'X' : 'O';
   this.setState({squares: squares, 
-                xIsnext: !this.state.xIsnext
+                xIsNext: !this.state.xIsNext
               });
+}
+
+
+reloadHandler = () => {
+  this.setState({
+        squares: Array(9).fill(null),
+        xIsNext: true
+})
 }
 
   renderSquare(index) {
     return <Square value={this.state.squares[index]} onClick={() => this.handleClick(index)}/>;
   }
 
-  state = {
-    squares: Array(9).fill(null),
-    xIsnext: true
-  };
 
   render() {
     const winner = calculateWinner(this.state.squares);
     let status;
     if (winner) {
       status = 'Winner: ' + winner;
+      setTimeout(this.reloadHandler, 1500)
+      
     } else {
       status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
     }
-    //const status = 'Next player: ' + (this.state.xIsnext ? 'X' : 'O');
+    //const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
 
     return (
-      <div>
+      <React.Fragment>
         <div className="status">{status}</div>
         <div className="board-row">
           {this.renderSquare(0)}
@@ -79,7 +90,8 @@ handleClick = (index) => {
           {this.renderSquare(7)}
           {this.renderSquare(8)}
         </div>
-      </div>
+        <button className="reload" onClick={this.reloadHandler}>Reload</button>
+      </React.Fragment>
     );
   }
 }

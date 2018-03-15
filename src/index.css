@@ -10,11 +10,18 @@ ol, ul {
 
 .game {
   flex-direction: row;
-  width: 60%;
-  height: 100em;
+  width: 100%;
+  height: 50em;
   text-align:center;
   float:left;
+  // background-color: red;
 }
+
+.game-board {
+  display: inline-block;
+
+}
+
 
 .board-row:after {
   clear: both;
@@ -32,21 +39,32 @@ ol, ul {
   background: #fff;
   border: 1px solid #999;
   float: left;
-  font-size: 77px;
-  font-weight: bold;
+  font-size: 11rem;
+ 
   line-height: 90px;
-  height: 90px;
+  height: 200px;
   margin-right: -1px;
   margin-top: -1px;
   padding: 0;
   text-align: center;
-  width: 90px;
+  width: 200px;
   cursor: pointer;
+  color: rgba(0,0,0, .7);
+
 }
 
 .square:focus {
   outline: none;
 }
+
+.square:hover {
+  background-color: lightgrey;
+}
+
+.square:active {
+  background-color: white;
+}
+
 
 .kbd-navigation .square:focus {
   background: #ddd;
@@ -72,9 +90,10 @@ ol, ul {
 }
 
 .status {
-  margin-bottom: 30px;
-  color:red;
+  margin: 1rem 0 2.5rem 0;
+  color:lightgray;
   font-size: 2.5em;
+  color: rgba(0,0,0, .7);
 }
 
 .finish {
@@ -94,4 +113,13 @@ ol, ul {
     margin-left: -20px;
     width: 200px;
     cursor: pointer;
+}
+
+.reload {
+  border-radius: 30%;
+  outline: none;
+  padding: 1rem;
+  margin: 2.5rem 0 1rem 0;
+  font-size: 1rem;
+  //font-weight: bold;
 }
