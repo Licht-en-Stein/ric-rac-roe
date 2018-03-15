@@ -64,13 +64,12 @@ reloadHandler = () => {
     const winner = calculateWinner(this.state.squares);
     let status;
     if (winner) {
-      status = 'Winner: ' + winner;
-      setTimeout(this.reloadHandler, 1500)
+      status = `${winner} wins`;
+      setTimeout(this.reloadHandler, 2000)
       
     } else {
-      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+      status = 'Next move: ' + (this.state.xIsNext ? 'X' : 'O');
     }
-    //const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
 
     return (
       <React.Fragment>
