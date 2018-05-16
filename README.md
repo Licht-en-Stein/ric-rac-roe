@@ -1,5 +1,6 @@
 # Ric Rac Roe
 
-Getting used to React. Tic Tac Toe in React.
+Tic Tac Toe build in React based on https://reactjs.org/tutorial/tutorial.html
 
+## Deploy
 - https://licht-en-stein.github.io/ric-rac-roe/
